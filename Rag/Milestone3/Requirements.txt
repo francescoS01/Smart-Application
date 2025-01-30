@@ -1,0 +1,29 @@
+# requirements.txt
+numpy 
+pandas 
+matplotlib 
+torch 
+transformers 
+langchain 
+langchain-core 
+langchain-openai 
+langchain-community 
+faiss-cpu 
+flask 
+requests 
+tabulate 
+networkx 
+huggingface_hub 
+openai 
+fpdf 
+sentence-transformers
+
+
+
+# Instructions for installing oollama
+
+# Visit the following link to download oollama:
+# https://ollama.com/download
+
+# Once downloaded, use the following terminal command to install the model locally:
+# ollama pull mistral

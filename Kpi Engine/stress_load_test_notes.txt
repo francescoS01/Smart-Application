@@ -1,0 +1,17 @@
+* Number of users: Numero di utenti simulati che interagiscono simultaneamente con il sistema
+
+* Ramp up: Numero di utenti aggiunti al secondo.
+Verranno aggiunti un numero di utenti al secondo fino ad arrivare al numero di utenti desiderato.
+
+* Host: Host del sistema da testare.
+
+* Run time: Durata totale del test.
+
+Ogni task del file stress_load_test è un task che un utente esegue:
+
+- Ogni utente esegue un task alla volta
+- Più utenti eseguono in parallelo
+- wait_time è il tempo di attesa che un utente deve aspettare tra la fine di un task e l' inizio del prossimo
+- Ogni task viene scelto in modo casuale da ogni utente
+
+Nel file c'è solo un task, che è quello eseguito sempre. Il tempo di attesa nel file è 0 (perchè c'è constant(0)).

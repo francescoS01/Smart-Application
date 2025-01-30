@@ -1,0 +1,21 @@
+services:
+
+  data-processing:
+    image: preprocessing
+    networks:
+      - db-network
+    build: 
+      context: ..
+      dockerfile: "./Data-Processing/Dockerfile"
+    volumes:
+      - ./docs:/usr/src/app/docs
+      - ./iso_models:/usr/src/app/saved_iso_model
+      - ./ffnn_models:/usr/src/app/saved_ffnn_model
+      - ./data_features:/usr/src/app/saved_data_features
+      - ./metadata:/usr/src/app/metadata_storage
+networks:
+  db-network:
+    name: db-network
+
+#volumes:
+  #metadata:

@@ -1,0 +1,16 @@
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"  # Flask app will run on port 5000
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+    # depends_on:
+    #   - api-layer
+    networks:
+      - security-network
+
+networks:
+  security-network:
+    name: security-network

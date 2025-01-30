@@ -1,0 +1,1008 @@
+{
+    "kpis": [
+        {
+            "category": "Energy and Environmental Impact",
+            "description": "The total energy consumed by a machine when it is idle but powered on.",
+            "formula": null,
+            "nameID": "consumption_idle",
+            "relationNumber": 17,
+            "unit": "kWh"
+        },
+        {
+            "category": "Energy and Environmental Impact",
+            "description": "The rate at which a machine consumes power.",
+            "formula": null,
+            "nameID": "power",
+            "relationNumber": 15,
+            "unit": "kW"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "The average time taken to complete one production cycle, from start to finish. It includes all phases of the production process.",
+            "formula": null,
+            "nameID": "average_cycle_time",
+            "relationNumber": 1,
+            "unit": "minutes"
+        },
+        {
+            "category": "Quality and Production Output",
+            "description": "The average number of defective items produced per production cycle.",
+            "formula": null,
+            "nameID": "bad_cycles",
+            "relationNumber": 7,
+            "unit": "percentage"
+        },
+        {
+            "category": "Cost Management",
+            "description": "The total cost associated with a machine being idle, including labor, energy, and opportunity costs.",
+            "formula": null,
+            "nameID": "cost_idle",
+            "relationNumber": 10,
+            "unit": "monetary_unit"
+        },
+        {
+            "category": "Cost Management",
+            "description": "The sum of all costs involved in the production process, including material, labor, energy, and maintenance costs.",
+            "formula": null,
+            "nameID": "cost",
+            "relationNumber": 12,
+            "unit": "monetary_unit"
+        },
+        {
+            "category": "Energy and Environmental Impact",
+            "description": "The total energy consumed by a machine while it is actively working.",
+            "formula": null,
+            "nameID": "consumption_working",
+            "relationNumber": 16,
+            "unit": "kWh"
+        },
+        {
+            "category": "Cost Management",
+            "description": "The expenses incurred during active machine operations, including energy, labor, and material costs.",
+            "formula": null,
+            "nameID": "cost_working",
+            "relationNumber": 11,
+            "unit": "monetary_unit"
+        },
+        {
+            "category": "Overall Performance",
+            "description": "The total quantity of products produced or processed by the system within a given time frame.",
+            "formula": "cycles / total_time",
+            "nameID": "throughput",
+            "relationNumber": 21,
+            "unit": "units/hour"
+        },
+        {
+            "category": "Energy and Environmental Impact",
+            "description": "A measure of how efficiently energy is utilized during each production cycle.",
+            "formula": "(consumption_idle+consumption_working) / cycles",
+            "nameID": "energy_efficiency_per_cycle",
+            "relationNumber": 14,
+            "unit": "kWh/cycle"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "The proportion of time a machine or system is not operational but available for use, expressed as a percentage of total available time.",
+            "formula": "(idle_time / (working_time + idle_time + offline_time)) * 100",
+            "nameID": "idle_time_percentage",
+            "relationNumber": 3,
+            "unit": "percentage"
+        },
+        {
+            "category": "Overall Performance",
+            "description": "A comprehensive measure of equipment performance.",
+            "formula": "(good_cycles*average_cycle_time)/(working_time+idle_time+offline_time)",
+            "nameID": "overall_equipment_effectiveness",
+            "relationNumber": 20,
+            "unit": "percentage"
+        },
+        {
+            "category": "Maintenance and Repair",
+            "description": "The average time interval between consecutive machine failures, indicating reliability.",
+            "formula": "working_time/bad_cycles",
+            "nameID": "time_between_failures",
+            "relationNumber": 19,
+            "unit": "hours"
+        },
+        {
+            "category": "Quality and Production Output",
+            "description": "The percentage of material wasted or discarded during the production process relative to the total input.",
+            "formula": "(bad_cycles / cycles) * 100",
+            "nameID": "scrap_rate",
+            "relationNumber": 8,
+            "unit": "percentage"
+        },
+        {
+            "category": "Maintenance and Repair",
+            "description": "The total time required to repair a machine and return it to operational status after a failure.",
+            "formula": "(offline_time * 10) /100",
+            "nameID": "repair_time",
+            "relationNumber": 18,
+            "unit": "minutes"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "The percentage of time a machine or system is actively in use compared to its total available time.",
+            "formula": "(working_time / (working_time + idle_time + offline_time)) * 100",
+            "nameID": "utilization_rate",
+            "relationNumber": 2,
+            "unit": "percentage"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "A ratio comparing the total working time to the idle time, providing insights into machine productivity.",
+            "formula": "working_time / idle_time",
+            "nameID": "working_to_idle_ratio",
+            "relationNumber": 5,
+            "unit": "ratio"
+        },
+        {
+            "category": "Cost Management",
+            "description": "The cost incurred for producing one unit or cycle, evaluated against the output quality and efficiency.",
+            "formula": "(cost_idle + cost_working) / cycles",
+            "nameID": "cost_efficiency_per_cycle",
+            "relationNumber": 9,
+            "unit": "monetary_unit"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "The percentage of total time during which a machine is out of operation due to maintenance, repairs, or unexpected failures.",
+            "formula": "(idle_time + offline_time) / (working_time + idle_time + offline_time) * 100",
+            "nameID": "machine_downtime_percentage",
+            "relationNumber": 4,
+            "unit": "percentage"
+        },
+        {
+            "category": "Energy and Environmental Impact",
+            "description": "The amount of energy consumed to produce a single unit or cycle of the product.",
+            "formula": "consumption / cycles",
+            "nameID": "energy_consumption_per_unit",
+            "relationNumber": 13,
+            "unit": "kWh"
+        },
+        {
+            "category": "Quality and Production Output",
+            "description": "The percentage of products or cycles that meet quality standards compared to the total production or cycles performed.",
+            "formula": "(good_cycles / cycles) * 100",
+            "nameID": "quality_rate",
+            "relationNumber": 6,
+            "unit": "percentage"
+        },
+        {
+            "category": "Energy and Environmental Impact",
+            "description": "The total energy or resource usage during a specific time period or production process.",
+            "formula": null,
+            "nameID": "consumption",
+            "relationNumber": 22,
+            "unit": "percentage"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "The total time a machine is unavailable for production due to planned or unplanned reasons, such as maintenance or power outages.",
+            "formula": null,
+            "nameID": "offline_time",
+            "relationNumber": 27,
+            "unit": "minutes"
+        },
+        {
+            "category": "Quality and Production Output",
+            "description": "The number of production cycles that meet quality standards and do not produce defective items.",
+            "formula": null,
+            "nameID": "good_cycles",
+            "relationNumber": 25,
+            "unit": "units"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "The total time a machine is not in operation but is available for use.",
+            "formula": null,
+            "nameID": "idle_time",
+            "relationNumber": 24,
+            "unit": "minutes"
+        },
+        {
+            "category": "Quality and Production Output",
+            "description": "The total number of production cycles completed, including both good and bad outcomes.",
+            "formula": null,
+            "nameID": "cycles",
+            "relationNumber": 26,
+            "unit": "percentage"
+        },
+        {
+            "category": "Operational Efficiency",
+            "description": "The total duration a machine is actively engaged in production tasks.",
+            "formula": null,
+            "nameID": "working_time",
+            "relationNumber": 23,
+            "unit": "minutes"
+        }
+    ],
+    "machines": [
+        {
+            "factory": "Unknown",
+            "id": 1,
+            "machineType": "Large Capacity Cutting Machine",
+            "name": "Large Capacity Cutting Machine 1",
+            "productionLine": 1
+        },
+        {
+            "factory": "Unknown",
+            "id": 2,
+            "machineType": "Riveting Machine",
+            "name": "Riveting Machine",
+            "productionLine": 0
+        },
+        {
+            "factory": "Unknown",
+            "id": 3,
+            "machineType": "Medium Capacity Cutting Machine",
+            "name": "Medium Capacity Cutting Machine 1",
+            "productionLine": 1
+        },
+        {
+            "factory": "Unknown",
+            "id": 4,
+            "machineType": "Laser Cutter",
+            "name": "Laser Cutter",
+            "productionLine": 0
+        },
+        {
+            "factory": "Unknown",
+            "id": 5,
+            "machineType": "Large Capacity Cutting Machine",
+            "name": "Large Capacity Cutting Machine 2",
+            "productionLine": 2
+        },
+        {
+            "factory": "Unknown",
+            "id": 6,
+            "machineType": "Medium Capacity Cutting Machine",
+            "name": "Medium Capacity Cutting Machine 2",
+            "productionLine": 2
+        },
+        {
+            "factory": "Unknown",
+            "id": 7,
+            "machineType": "Testing Machine",
+            "name": "Testing Machine 1",
+            "productionLine": 1
+        },
+        {
+            "factory": "Unknown",
+            "id": 8,
+            "machineType": "Testing Machine",
+            "name": "Testing Machine 2",
+            "productionLine": 2
+        },
+        {
+            "factory": "Unknown",
+            "id": 9,
+            "machineType": "Low Capacity Cutting Machine",
+            "name": "Low Capacity Cutting Machine 1",
+            "productionLine": 1
+        },
+        {
+            "factory": "Unknown",
+            "id": 10,
+            "machineType": "Medium Capacity Cutting Machine",
+            "name": "Medium Capacity Cutting Machine 3",
+            "productionLine": 3
+        },
+        {
+            "factory": "Unknown",
+            "id": 11,
+            "machineType": "Assembly Machine",
+            "name": "Assembly Machine 1",
+            "productionLine": 1
+        },
+        {
+            "factory": "Unknown",
+            "id": 12,
+            "machineType": "Laser Welding Machine",
+            "name": "Laser Welding Machine 1",
+            "productionLine": 1
+        },
+        {
+            "factory": "Unknown",
+            "id": 13,
+            "machineType": "Assembly Machine",
+            "name": "Assembly Machine 2",
+            "productionLine": 2
+        },
+        {
+            "factory": "Unknown",
+            "id": 14,
+            "machineType": "Assembly Machine",
+            "name": "Assembly Machine 3",
+            "productionLine": 3
+        },
+        {
+            "factory": "Unknown",
+            "id": 15,
+            "machineType": "Laser Welding Machine",
+            "name": "Laser Welding Machine 2",
+            "productionLine": 2
+        },
+        {
+            "factory": "Unknown",
+            "id": 16,
+            "machineType": "Testing Machine",
+            "name": "Testing Machine 3",
+            "productionLine": 3
+        }
+    ],
+    "relation": [
+        {
+            "kpiID": 1,
+            "machineID": 11
+        },
+        {
+            "kpiID": 1,
+            "machineID": 13
+        },
+        {
+            "kpiID": 1,
+            "machineID": 14
+        },
+        {
+            "kpiID": 2,
+            "machineID": 11
+        },
+        {
+            "kpiID": 2,
+            "machineID": 13
+        },
+        {
+            "kpiID": 2,
+            "machineID": 14
+        },
+        {
+            "kpiID": 3,
+            "machineID": 11
+        },
+        {
+            "kpiID": 3,
+            "machineID": 13
+        },
+        {
+            "kpiID": 3,
+            "machineID": 14
+        },
+        {
+            "kpiID": 4,
+            "machineID": 11
+        },
+        {
+            "kpiID": 4,
+            "machineID": 13
+        },
+        {
+            "kpiID": 4,
+            "machineID": 14
+        },
+        {
+            "kpiID": 5,
+            "machineID": 11
+        },
+        {
+            "kpiID": 5,
+            "machineID": 13
+        },
+        {
+            "kpiID": 5,
+            "machineID": 14
+        },
+        {
+            "kpiID": 6,
+            "machineID": 11
+        },
+        {
+            "kpiID": 6,
+            "machineID": 13
+        },
+        {
+            "kpiID": 6,
+            "machineID": 14
+        },
+        {
+            "kpiID": 7,
+            "machineID": 11
+        },
+        {
+            "kpiID": 7,
+            "machineID": 13
+        },
+        {
+            "kpiID": 7,
+            "machineID": 14
+        },
+        {
+            "kpiID": 8,
+            "machineID": 11
+        },
+        {
+            "kpiID": 8,
+            "machineID": 13
+        },
+        {
+            "kpiID": 8,
+            "machineID": 14
+        },
+        {
+            "kpiID": 9,
+            "machineID": 11
+        },
+        {
+            "kpiID": 9,
+            "machineID": 13
+        },
+        {
+            "kpiID": 9,
+            "machineID": 14
+        },
+        {
+            "kpiID": 10,
+            "machineID": 11
+        },
+        {
+            "kpiID": 10,
+            "machineID": 13
+        },
+        {
+            "kpiID": 10,
+            "machineID": 14
+        },
+        {
+            "kpiID": 11,
+            "machineID": 11
+        },
+        {
+            "kpiID": 11,
+            "machineID": 13
+        },
+        {
+            "kpiID": 11,
+            "machineID": 14
+        },
+        {
+            "kpiID": 12,
+            "machineID": 11
+        },
+        {
+            "kpiID": 12,
+            "machineID": 13
+        },
+        {
+            "kpiID": 12,
+            "machineID": 14
+        },
+        {
+            "kpiID": 13,
+            "machineID": 11
+        },
+        {
+            "kpiID": 13,
+            "machineID": 13
+        },
+        {
+            "kpiID": 13,
+            "machineID": 14
+        },
+        {
+            "kpiID": 14,
+            "machineID": 11
+        },
+        {
+            "kpiID": 14,
+            "machineID": 13
+        },
+        {
+            "kpiID": 14,
+            "machineID": 14
+        },
+        {
+            "kpiID": 15,
+            "machineID": 11
+        },
+        {
+            "kpiID": 15,
+            "machineID": 13
+        },
+        {
+            "kpiID": 15,
+            "machineID": 14
+        },
+        {
+            "kpiID": 16,
+            "machineID": 11
+        },
+        {
+            "kpiID": 16,
+            "machineID": 13
+        },
+        {
+            "kpiID": 16,
+            "machineID": 14
+        },
+        {
+            "kpiID": 17,
+            "machineID": 11
+        },
+        {
+            "kpiID": 17,
+            "machineID": 13
+        },
+        {
+            "kpiID": 17,
+            "machineID": 14
+        },
+        {
+            "kpiID": 18,
+            "machineID": 11
+        },
+        {
+            "kpiID": 18,
+            "machineID": 13
+        },
+        {
+            "kpiID": 18,
+            "machineID": 14
+        },
+        {
+            "kpiID": 19,
+            "machineID": 11
+        },
+        {
+            "kpiID": 19,
+            "machineID": 13
+        },
+        {
+            "kpiID": 19,
+            "machineID": 14
+        },
+        {
+            "kpiID": 20,
+            "machineID": 11
+        },
+        {
+            "kpiID": 20,
+            "machineID": 13
+        },
+        {
+            "kpiID": 20,
+            "machineID": 14
+        },
+        {
+            "kpiID": 21,
+            "machineID": 11
+        },
+        {
+            "kpiID": 21,
+            "machineID": 13
+        },
+        {
+            "kpiID": 21,
+            "machineID": 14
+        },
+        {
+            "kpiID": 22,
+            "machineID": 11
+        },
+        {
+            "kpiID": 22,
+            "machineID": 13
+        },
+        {
+            "kpiID": 22,
+            "machineID": 14
+        },
+        {
+            "kpiID": 23,
+            "machineID": 11
+        },
+        {
+            "kpiID": 23,
+            "machineID": 13
+        },
+        {
+            "kpiID": 23,
+            "machineID": 14
+        },
+        {
+            "kpiID": 24,
+            "machineID": 11
+        },
+        {
+            "kpiID": 24,
+            "machineID": 13
+        },
+        {
+            "kpiID": 24,
+            "machineID": 14
+        },
+        {
+            "kpiID": 25,
+            "machineID": 11
+        },
+        {
+            "kpiID": 25,
+            "machineID": 13
+        },
+        {
+            "kpiID": 25,
+            "machineID": 14
+        },
+        {
+            "kpiID": 26,
+            "machineID": 11
+        },
+        {
+            "kpiID": 26,
+            "machineID": 13
+        },
+        {
+            "kpiID": 26,
+            "machineID": 14
+        },
+        {
+            "kpiID": 27,
+            "machineID": 11
+        },
+        {
+            "kpiID": 27,
+            "machineID": 13
+        },
+        {
+            "kpiID": 27,
+            "machineID": 14
+        },
+        {
+            "kpiID": 1,
+            "machineID": 7
+        },
+        {
+            "kpiID": 1,
+            "machineID": 8
+        },
+        {
+            "kpiID": 1,
+            "machineID": 16
+        },
+        {
+            "kpiID": 2,
+            "machineID": 7
+        },
+        {
+            "kpiID": 2,
+            "machineID": 8
+        },
+        {
+            "kpiID": 2,
+            "machineID": 16
+        },
+        {
+            "kpiID": 3,
+            "machineID": 7
+        },
+        {
+            "kpiID": 3,
+            "machineID": 8
+        },
+        {
+            "kpiID": 3,
+            "machineID": 16
+        },
+        {
+            "kpiID": 4,
+            "machineID": 7
+        },
+        {
+            "kpiID": 4,
+            "machineID": 8
+        },
+        {
+            "kpiID": 4,
+            "machineID": 16
+        },
+        {
+            "kpiID": 5,
+            "machineID": 7
+        },
+        {
+            "kpiID": 5,
+            "machineID": 8
+        },
+        {
+            "kpiID": 5,
+            "machineID": 16
+        },
+        {
+            "kpiID": 6,
+            "machineID": 7
+        },
+        {
+            "kpiID": 6,
+            "machineID": 8
+        },
+        {
+            "kpiID": 6,
+            "machineID": 16
+        },
+        {
+            "kpiID": 7,
+            "machineID": 7
+        },
+        {
+            "kpiID": 7,
+            "machineID": 8
+        },
+        {
+            "kpiID": 7,
+            "machineID": 16
+        },
+        {
+            "kpiID": 9,
+            "machineID": 7
+        },
+        {
+            "kpiID": 9,
+            "machineID": 8
+        },
+        {
+            "kpiID": 9,
+            "machineID": 16
+        },
+        {
+            "kpiID": 10,
+            "machineID": 7
+        },
+        {
+            "kpiID": 10,
+            "machineID": 8
+        },
+        {
+            "kpiID": 10,
+            "machineID": 16
+        },
+        {
+            "kpiID": 11,
+            "machineID": 7
+        },
+        {
+            "kpiID": 11,
+            "machineID": 8
+        },
+        {
+            "kpiID": 11,
+            "machineID": 16
+        },
+        {
+            "kpiID": 12,
+            "machineID": 7
+        },
+        {
+            "kpiID": 12,
+            "machineID": 8
+        },
+        {
+            "kpiID": 12,
+            "machineID": 16
+        },
+        {
+            "kpiID": 18,
+            "machineID": 7
+        },
+        {
+            "kpiID": 18,
+            "machineID": 8
+        },
+        {
+            "kpiID": 18,
+            "machineID": 16
+        },
+        {
+            "kpiID": 19,
+            "machineID": 7
+        },
+        {
+            "kpiID": 19,
+            "machineID": 8
+        },
+        {
+            "kpiID": 19,
+            "machineID": 16
+        },
+        {
+            "kpiID": 20,
+            "machineID": 7
+        },
+        {
+            "kpiID": 20,
+            "machineID": 8
+        },
+        {
+            "kpiID": 20,
+            "machineID": 16
+        },
+        {
+            "kpiID": 21,
+            "machineID": 7
+        },
+        {
+            "kpiID": 21,
+            "machineID": 8
+        },
+        {
+            "kpiID": 21,
+            "machineID": 16
+        },
+        {
+            "kpiID": 23,
+            "machineID": 7
+        },
+        {
+            "kpiID": 23,
+            "machineID": 8
+        },
+        {
+            "kpiID": 23,
+            "machineID": 16
+        },
+        {
+            "kpiID": 24,
+            "machineID": 7
+        },
+        {
+            "kpiID": 24,
+            "machineID": 8
+        },
+        {
+            "kpiID": 24,
+            "machineID": 16
+        },
+        {
+            "kpiID": 25,
+            "machineID": 7
+        },
+        {
+            "kpiID": 25,
+            "machineID": 8
+        },
+        {
+            "kpiID": 25,
+            "machineID": 16
+        },
+        {
+            "kpiID": 26,
+            "machineID": 7
+        },
+        {
+            "kpiID": 26,
+            "machineID": 8
+        },
+        {
+            "kpiID": 26,
+            "machineID": 16
+        },
+        {
+            "kpiID": 27,
+            "machineID": 7
+        },
+        {
+            "kpiID": 27,
+            "machineID": 8
+        },
+        {
+            "kpiID": 27,
+            "machineID": 16
+        },
+        {
+            "kpiID": 1,
+            "machineID": 2
+        },
+        {
+            "kpiID": 2,
+            "machineID": 2
+        },
+        {
+            "kpiID": 3,
+            "machineID": 2
+        },
+        {
+            "kpiID": 4,
+            "machineID": 2
+        },
+        {
+            "kpiID": 5,
+            "machineID": 2
+        },
+        {
+            "kpiID": 6,
+            "machineID": 2
+        },
+        {
+            "kpiID": 7,
+            "machineID": 2
+        },
+        {
+            "kpiID": 8,
+            "machineID": 2
+        },
+        {
+            "kpiID": 9,
+            "machineID": 2
+        },
+        {
+            "kpiID": 10,
+            "machineID": 2
+        },
+        {
+            "kpiID": 11,
+            "machineID": 2
+        },
+        {
+            "kpiID": 12,
+            "machineID": 2
+        },
+        {
+            "kpiID": 13,
+            "machineID": 2
+        },
+        {
+            "kpiID": 14,
+            "machineID": 2
+        },
+        {
+            "kpiID": 15,
+            "machineID": 2
+        },
+        {
+            "kpiID": 16,
+            "machineID": 2
+        },
+        {
+            "kpiID": 17,
+            "machineID": 2
+        },
+        {
+            "kpiID": 18,
+            "machineID": 2
+        },
+        {
+            "kpiID": 19,
+            "machineID": 2
+        },
+        {
+            "kpiID": 20,
+            "machineID": 2
+        },
+        {
+            "kpiID": 21,
+            "machineID": 2
+        },
+        {
+            "kpiID": 22,
+            "machineID": 2
+        },
+        {
+            "kpiID": 23,
+            "machineID": 2
+        },
+        {
+            "kpiID": 24,
+            "machineID": 2
+        },
+        {
+            "kpiID": 25,
+            "machineID": 2
+        },
+        {
+            "kpiID": 26,
+            "machineID": 2
+        },
+        {
+            "kpiID": 27,
+            "machineID": 2
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+  "machines": [
+    { "id": 1, "machineType": "Laser cutter", "productionLine": 2, "factory": "Ghezzano Plant 1", "name": "Laser Welding Machine 2" },
+    { "id": 2, "machineType": "3D Printer", "productionLine": 1, "factory": "Ghezzano Plant 2", "name": "3D Printer Alpha" },
+    { "id": 3, "machineType": "CNC Mill", "productionLine": 3, "factory": "Pisa Plant", "name": "CNC Milling Machine X" },
+    { "id": 4, "machineType": "Press", "productionLine": 1, "factory": "Lucca Factory", "name": "Hydraulic Press Z" },
+    { "id": 5, "machineType": "Injection Molder", "productionLine": 2, "factory": "Florence Factory", "name": "Injection Molder Y" },
+    { "id": 6, "machineType": "Laser cutter", "productionLine": 3, "factory": "Ghezzano Plant 1", "name": "Laser Cutter Beta" },
+    { "id": 7, "machineType": "Welding Robot", "productionLine": 1, "factory": "Ghezzano Plant 3", "name": "Welding Robot Delta" },
+    { "id": 8, "machineType": "CNC Lathe", "productionLine": 4, "factory": "Pisa Plant", "name": "Lathe Machine Gamma" },
+    { "id": 9, "machineType": "Drill Press", "productionLine": 2, "factory": "Lucca Factory", "name": "Drill Press Omega" },
+    { "id": 10, "machineType": "Laser Engraver", "productionLine": 5, "factory": "Florence Factory", "name": "Engraver Sigma" }
+  ],
+  "kpis": [
+    { "nameID": "good_cycles", "description": "Good Cycles", "formula": null, "category": "Energy", "unit": "W", "relationNumber": 1 },
+    { "nameID": "power_consumption", "description": "Power Consumption", "formula": "total_energy/operating_hours", "category": "Energy", "unit": "kWh", "relationNumber": 2 },
+    { "nameID": "downtime", "description": "Downtime", "formula": null, "category": "Performance", "unit": "h", "relationNumber": 3 },
+    { "nameID": "output_rate", "description": "Output Rate", "formula": "produced_units/operating_hours", "category": "Performance", "unit": "units/h", "relationNumber": 4 },
+    { "nameID": "efficiency", "description": "Efficiency", "formula": "actual_output/expected_output", "category": "Performance", "unit": "%", "relationNumber": 5 },
+    { "nameID": "temperature", "description": "Machine Temperature", "formula": null, "category": "Environment", "unit": "°C", "relationNumber": 6 },
+    { "nameID": "vibration", "description": "Machine Vibration", "formula": null, "category": "Environment", "unit": "mm/s", "relationNumber": 7 },
+    { "nameID": "material_usage", "description": "Material Usage", "formula": "used_material/produced_units", "category": "Materials", "unit": "kg/unit", "relationNumber": 8 },
+    { "nameID": "cycle_time", "description": "Cycle Time", "formula": null, "category": "Performance", "unit": "s", "relationNumber": 9 },
+    { "nameID": "defect_rate", "description": "Defect Rate", "formula": "defective_units/total_units", "category": "Quality", "unit": "%", "relationNumber": 10 }
+  ],
+  "relation": [
+    { "machineID": 1, "kpiID": "good_cycles" },
+    { "machineID": 2, "kpiID": "power_consumption" },
+    { "machineID": 3, "kpiID": "downtime" },
+    { "machineID": 4, "kpiID": "output_rate" },
+    { "machineID": 5, "kpiID": "efficiency" },
+    { "machineID": 6, "kpiID": "temperature" },
+    { "machineID": 7, "kpiID": "vibration" },
+    { "machineID": 8, "kpiID": "material_usage" },
+    { "machineID": 9, "kpiID": "cycle_time" },
+    { "machineID": 10, "kpiID": "defect_rate" }
+  ]
+}

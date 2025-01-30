@@ -1,0 +1,37 @@
+\doxysection{Database.\+Database\+\_\+interface.\+DBConnection Class Reference}
+\hypertarget{class_database_1_1_database__interface_1_1_d_b_connection}{}\label{class_database_1_1_database__interface_1_1_d_b_connection}\index{Database.Database\_interface.DBConnection@{Database.Database\_interface.DBConnection}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+tuple \mbox{\hyperlink{class_database_1_1_database__interface_1_1_d_b_connection_af0683cdb799f618c18ba5a81bb8106f7}{retrieve\+\_\+data\+\_\+db}} (int machine, List\mbox{[}str\mbox{]} KPIs, str aggregation\+\_\+operation, tuple range)
+\item 
+np.\+ndarray\mbox{[}datetime\mbox{]} \mbox{\hyperlink{class_database_1_1_database__interface_1_1_d_b_connection_a2652c32408f8c88c351dcadb7e6c16b3}{get\+\_\+time\+\_\+range}} (list\mbox{[}str\mbox{]} time\+\_\+range, datetime start\+\_\+time, datetime end\+\_\+time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_database_1_1_database__interface_1_1_d_b_connection_a2652c32408f8c88c351dcadb7e6c16b3}\index{Database.Database\_interface.DBConnection@{Database.Database\_interface.DBConnection}!get\_time\_range@{get\_time\_range}}
+\index{get\_time\_range@{get\_time\_range}!Database.Database\_interface.DBConnection@{Database.Database\_interface.DBConnection}}
+\doxysubsubsection{\texorpdfstring{get\_time\_range()}{get\_time\_range()}}
+{\footnotesize\ttfamily \label{class_database_1_1_database__interface_1_1_d_b_connection_a2652c32408f8c88c351dcadb7e6c16b3} 
+ np.\+ndarray\mbox{[}datetime\mbox{]} Database.\+Database\+\_\+interface.\+DBConnection.\+get\+\_\+time\+\_\+range (\begin{DoxyParamCaption}\item[{list\mbox{[}str\mbox{]}}]{time\+\_\+range}{, }\item[{datetime}]{start\+\_\+time}{, }\item[{datetime}]{end\+\_\+time}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_database_1_1_database__interface_1_1_d_b_connection_af0683cdb799f618c18ba5a81bb8106f7}\index{Database.Database\_interface.DBConnection@{Database.Database\_interface.DBConnection}!retrieve\_data\_db@{retrieve\_data\_db}}
+\index{retrieve\_data\_db@{retrieve\_data\_db}!Database.Database\_interface.DBConnection@{Database.Database\_interface.DBConnection}}
+\doxysubsubsection{\texorpdfstring{retrieve\_data\_db()}{retrieve\_data\_db()}}
+{\footnotesize\ttfamily \label{class_database_1_1_database__interface_1_1_d_b_connection_af0683cdb799f618c18ba5a81bb8106f7} 
+tuple Database.\+Database\+\_\+interface.\+DBConnection.\+retrieve\+\_\+data\+\_\+db (\begin{DoxyParamCaption}\item[{int}]{machine}{, }\item[{List\mbox{[}str\mbox{]}}]{KPIs}{, }\item[{str}]{aggregation\+\_\+operation}{, }\item[{tuple}]{range}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}retrieve specified data from the db in a certain time range
+
+Args:
+    machine: the machine for which the data is reuqested
+    KPIs: the KPIs for which data is requested
+    aggregation_operation: the aggregation operation used on the data
+    range: the time range for which to retrieve data
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+Database/\mbox{\hyperlink{_database__interface_8py}{Database\+\_\+interface.\+py}}\end{DoxyCompactItemize}

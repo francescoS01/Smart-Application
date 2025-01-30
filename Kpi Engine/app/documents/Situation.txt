@@ -1,0 +1,4 @@
+- Aggregazione di base presa: sum (di default, sennò lo può scegliere il client)
+
+- Aggregazione di user disponibili: sum, avg, min, max
+

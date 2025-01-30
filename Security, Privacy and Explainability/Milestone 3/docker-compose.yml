@@ -1,0 +1,14 @@
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_RUN_HOST=0.0.0.0
+    networks:
+      - security-network
+
+networks:
+  security-network:
+    name: security-network

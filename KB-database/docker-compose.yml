@@ -1,0 +1,23 @@
+services:
+
+  kb:
+    build: 
+      context: .
+      dockerfile: KB.Dockerfile
+    image: kb-postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - kbdata:/var/lib/postgresql/data
+    networks:
+      - db-network
+
+volumes:
+  kbdata:
+
+networks:
+  db-network:
+    name: db-network

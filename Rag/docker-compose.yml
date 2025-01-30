@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: RAG
+    ports:
+      - "5001:5001"  # Espone la porta 5000 al tuo sistema host
+    volumes:
+      - .:/app  # Sincronizza la directory corrente nel container
+    stdin_open: true  # Consente l'interazione con il container
+    tty: true  # Abilita un terminale virtuale
+    depends_on:
+      - ollama  # Assicura che Ollama venga avviato prima di "app"
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    networks:
+      - rag-network
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"  # Espone la porta 11434 per Ollama
+    volumes:
+      - ollama-models:/root/.ollama  # Persistenza per i modelli scaricati
+    entrypoint: >
+      sh -c "
+      ollama serve &
+      sleep 5 &&
+      while ! ollama list | grep -q 'mistral'; do
+        echo 'Model mistral not found. Retrying pull...';
+        ollama pull mistral;
+        sleep 10;
+      done;
+      echo 'Model mistral successfully pulled or already present.';
+      tail -f /dev/null"
+    networks:
+      - rag-network
+
+
+volumes:
+  ollama-models:  # Volume per conservare i modelli scaricati
+
+networks:
+  rag-network:
+    name: rag-network

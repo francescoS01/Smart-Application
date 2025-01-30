@@ -1,0 +1,16 @@
+project: postgres_store
+provider: local
+registry: data/registry.db
+online_store:
+    type: redis
+    key_ttl_seconds: 604800
+    connection_string: "redis:6379"
+offline_store:
+    type: postgres
+    host: db
+    port: 5432
+    database: postgres
+    db_schema: public
+    user: postgres
+    password: password
+entity_key_serialization_version: 2

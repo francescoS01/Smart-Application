@@ -1,0 +1,133 @@
+\chapter{KPI calculation engine introduction}
+\hypertarget{md_doc_2_documentation}{}\label{md_doc_2_documentation}\index{KPI calculation engine introduction@{KPI calculation engine introduction}}
+\label{md_doc_2_documentation_autotoc_md0}%
+\Hypertarget{md_doc_2_documentation_autotoc_md0}%
+
+
+The KPI calculation engine is responsible for the calculation of kpis; it interacts with other parts of the system to calculate kpis. Along with the kpi engine we also have the alert monitor which has the responsibility of monitoring kpis from the machines and does soe by interaction with the kpi engine and other parts of the system as well.\hypertarget{md_doc_2_documentation_autotoc_md1}{}\doxysection{\texorpdfstring{The calculation engine}{The calculation engine}}\label{md_doc_2_documentation_autotoc_md1}
+The kpi calculation engine computations goes through the following steps to make a calculation
+
+
+\begin{DoxyEnumerate}
+\item parameter validation ~\newline
+
+\item semantical validation ~\newline
+
+\item data retrieval ~\newline
+
+\item calculating the expression
+\end{DoxyEnumerate}
+
+The parameter validation is handled by pydantic that can validate incoming parameters and a bit of code when necessary, for the semantic validation we have to check if the kpis requested can be calculated with a certain machine, if so then we proceed with data retrieval from the database and finally invoke the calculation engine to get the result. The dsecribed workflow is represented in the image below.
+
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{kpi-engine.png}}
+\end{DoxyImageNoCaption}
+
+
+This workflow is used for both calculation of normal expressions and simlarly for the expressions of the alert monitoring, with some modification for the alert part.\hypertarget{md_doc_2_documentation_autotoc_md2}{}\doxysection{\texorpdfstring{Alert monitoring}{Alert monitoring}}\label{md_doc_2_documentation_autotoc_md2}
+The the kpi engine also features the capability of monitoring custom alerts on request and periodically perform calculations and in case fire the alerts by contacting the system to notify it.\hypertarget{md_doc_2_documentation_autotoc_md3}{}\doxysection{\texorpdfstring{Communication}{Communication}}\label{md_doc_2_documentation_autotoc_md3}
+Interaction with other parts of the system happens using the HTTP protocol the points exposed are 5 of which only 4 are meant for external communications while 1 is meant for internal ones(as in the picture above)\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{calculate}} used by other parts of the system to ask for custom calculations. ~\newline
+
+\item {\bfseries{add\+\_\+alert}} which adds a new alert to be monitored. ~\newline
+
+\item {\bfseries{remove\+\_\+alerts}} which can remove specified alerts from the monitoring ~\newline
+
+\item {\bfseries{get\+\_\+all\+\_\+alerts}} gives all the currently monitored alerts. ~\newline
+
+\item {\bfseries{alert}} which is used as an internal communication between the alert monitor and the kpi engine to ask for custom calculations on the alerts expressions
+\end{DoxyItemize}
+
+All the endpoints are documented and can be tried at the address \href{localhost:8000/docs}{\texttt{ localhost\+:8000/docs}} please ensure that the docker container of the kpi engine is running and also the docker container for api layer is running and if you want to try out the apis also the containers for database and knowledge base.\hypertarget{md_doc_2_documentation_autotoc_md4}{}\doxysection{\texorpdfstring{System overview}{System overview}}\label{md_doc_2_documentation_autotoc_md4}
+ 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{kpi-engine-system.png}}
+\end{DoxyImageNoCaption}
+
+
+In the image above we can see a representation of the various elements of the system we talked about in the previous parts.
+
+The normal flow during the interaction in the system is that when some calculation is needed from a component in the system it is request through the {\bfseries{calculate}} endpoint. As for the laerts we have the corresponding endpoints to add/remove/get the alerts that the system is currently monitoring, and then using the corresponding external endpoint the system will notify the alerts that are to be fired.\hypertarget{md_doc_2_documentation_autotoc_md5}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_doc_2_documentation_autotoc_md5}
+Note\+: you need Docker installed, if not please install it.
+
+To start the system KPI engine directory, from there use the following command inside the KPI engine directory\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{docker-\/compose\ –-\/build\ -\/d}
+
+\end{DoxyCode}
+ after that you can visit the address \href{localhost:8000/docs}{\texttt{ localhost\+:8000/docs}} from your browser and can try out the apis.\hypertarget{md_doc_2_documentation_autotoc_md6}{}\doxysubsection{\texorpdfstring{technologies used}{technologies used}}\label{md_doc_2_documentation_autotoc_md6}
+For this part we used different technologies, in particular we have a \href{https://www.docker.com/}{\texttt{ Docker}} container to make everything easy to run on different machines. All the requests are handled using \href{https://fastapi.tiangolo.com/}{\texttt{ Fast\+API}} and \href{https://docs.pydantic.dev/latest/}{\texttt{ Pydantic}} which proved useful, their combination allowed us to easily write a documentation of the apis to interact with other parts and also Pydantic can take care of most of the parameter validation thanks to it’s models while fastapi is very flexible and reliable. To realize the alert monitor we decided to use \href{https://apscheduler.readthedocs.io/en/3.x/}{\texttt{ APScheduler}} which allows very flexible scheduling of jobs as well as a lot of options for job execution for different kind of tasks and need for storing the jobs to launch.\hypertarget{md_doc_2_documentation_autotoc_md7}{}\doxysection{\texorpdfstring{Code organization}{Code organization}}\label{md_doc_2_documentation_autotoc_md7}
+Here we have a tree view to help understand the organization of code and how things are done.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{KPI\ engine}
+\DoxyCodeLine{├──\ app}
+\DoxyCodeLine{│\ \ \ ├──\ Alert\_Monitor}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ Tests}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ alert\_monitor.py}
+\DoxyCodeLine{│\ \ \ ├──\ Database}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ Database\_interface.py}
+\DoxyCodeLine{│\ \ \ ├──\ Documentation.md}
+\DoxyCodeLine{│\ \ \ ├──\ KPI\_engine}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ EngineCalculation}
+\DoxyCodeLine{│\ \ \ │\ \ \ │\ \ \ └──\ calculation\_engine.py}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ Tests}
+\DoxyCodeLine{│\ \ \ ├──\ Knowledge\_base}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ knowledge\_base\_interface.py}
+\DoxyCodeLine{│\ \ \ ├──\ Tests}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ test\_alert\_monitor.py}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ test\_api.py}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ test\_engine\_kpi.py}
+\DoxyCodeLine{│\ \ \ ├──\ main.py}
+\DoxyCodeLine{│\ \ \ ├──\ models}
+\DoxyCodeLine{│\ \ \ │\ \ \ ├──\ alert\_requests.py}
+\DoxyCodeLine{│\ \ \ │\ \ \ └──\ calculation\_request.py}
+\DoxyCodeLine{│\ \ \ ├──\ run\_tests.sh}
+\DoxyCodeLine{│\ \ \ └──\ utils}
+\DoxyCodeLine{│\ \ \ \ \ \ \ ├──\ calculation\_utils.py}
+\DoxyCodeLine{│\ \ \ \ \ \ \ └──\ utils.py}
+\DoxyCodeLine{├──\ locustfile.py}
+\DoxyCodeLine{├──\ docker-\/compose.yml}
+\DoxyCodeLine{├──\ requirements.txt}
+\DoxyCodeLine{└──\ stress\_load\_test.py}
+
+\end{DoxyCode}
+
+
+This part is more technical and is thought to help navigate the code base of the kpi engine, for this reason when a path to something is specified it is assumed to start from the kpi engine folder. To avoid redundancy we are gonna explain what the most important files contain and then you can also view the code yourself which contains comments and other thing help understanding better how the system works.
+
+
+\begin{DoxyItemize}
+\item The {\itshape app/\+Database} and {\itshape app/\+Knowledge\+\_\+base} folders contain the utilities used to interact with the knowledge base and database respectively and are used by the calculation engine to retrieve data and do semantical validation and also the alert monitor uses the knowledge base to do also semantical checking when adding new alerts to monitor.
+\item Inside the {\itshape app/\+KPI\+\_\+engine/\+Engine\+Calculation} is the calculation engine code, for the logic please refer to the Calculation logic section since it is more articulate and needs more explanations.
+\item The {\itshape app/models} folder contains the pydantic models definitions used to validate parameters and generate the documentation, too understand better their usage you can see the code in the relative files which is quite simple or read the summary in the dedicated section.
+\item {\itshape main.\+py} contains all the endpoint definitions explained in the previous section.
+\item {\itshape app/\+Alert\+\_\+monitor.\+py} contains the alert monitor code, please visit the dedicated section for more details.
+\item {\itshape app/utils} contains utility files that we used to realize other components of the engine.
+\item {\itshape stress\+\_\+load\+\_\+test.\+py} contains the code used to test the calculation capabilities of the engine
+\item Finally to test the code we have the {\itshape Tests} folder which contains our unit tests for the kpi engine various parts.
+\end{DoxyItemize}
+
+Finally we also have a requirements.\+txt file containing all the dependencies needed, Dockerfile and docker-\/compose.\+yml file used to setup our docker container, and the file used to generate this documentation.\hypertarget{md_doc_2_documentation_autotoc_md8}{}\doxysubsection{\texorpdfstring{Load testing}{Load testing}}\label{md_doc_2_documentation_autotoc_md8}
+To test the capabilities we also decided to do some load testing, for this part we decide to use \href{https://locust.io/}{\texttt{ locust}}. The framework allows us to send multiple request with settings like\+:
+\begin{DoxyItemize}
+\item Number of users\+: upper bound on the number of users simulated. ~\newline
+
+\item Ramp up\+: Number of users simulated added by second (until the upper bound is reached).
+\item Run time\+: Total time of test. ~\newline
+
+\item Task\+: It is possible to describe task that every user can perform.
+\end{DoxyItemize}
+
+It is possible to get also quantitative graphs of data about KPI the engine performances according to number of users.
+
+For our tests we also tried the alert monitor using multiple parallel users, each user can pick a random action between calculate,add,remove and get alerts, such test code is in the stress\+\_\+load\+\_\+test.\+py file.\hypertarget{md_doc_2_documentation_autotoc_md9}{}\doxysubsection{\texorpdfstring{Resource consumption}{Resource consumption}}\label{md_doc_2_documentation_autotoc_md9}
+using docker can be heavy both from disk usage and memory usage however such problem is counterbalanced by the possibility offered by using the containers, at normal pace with no data the engine uses 165 mb of memory ram and has a cpu usage of 1.\+7\% so it’s not too much considered the capacities of normal machines. 

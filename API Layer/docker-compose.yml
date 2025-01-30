@@ -1,0 +1,29 @@
+services:
+
+  api-layer:
+    image: swagger_server
+    ports:
+      - "443:443"
+      - "80:443"
+    environment:
+      - KAFKA_HOST=kafka
+      - KAFKA_PORT=29092
+    networks:
+      - db-network
+      - rag-network
+      - security-network
+    build: 
+      context: ..
+      dockerfile: "./API Layer/Dockerfile"
+    volumes:
+      - ./docs:/usr/src/app/docs
+      - ./test_report/:/usr/src/app/test
+    restart: always
+
+networks:
+  db-network:
+    name: db-network
+  rag-network:
+    name: rag-network
+  security-network:
+    name: security-network

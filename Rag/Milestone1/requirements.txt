@@ -1,0 +1,8 @@
+networkx           
+numpy              
+networkx
+numpy
+transformers
+torch
+faiss-cpu
+sentence-transformers

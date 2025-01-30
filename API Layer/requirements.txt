@@ -1,0 +1,13 @@
+connexion < 3.0.0
+connexion[swagger-ui] >= 2.6.0
+python_dateutil == 2.6.0
+setuptools >= 21.0.0
+swagger-ui-bundle >= 0.0.2
+psycopg2==2.9.10
+confluent-kafka==2.6.0
+flask==2.2.5
+flask-talisman==1.1.0
+pyopenssl==24.3.0
+gevent==24.2.1
+python-dotenv==1.0.1
+pdoc

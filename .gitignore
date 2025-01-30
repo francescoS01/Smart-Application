@@ -1,0 +1,64 @@
+# dataset
+Dataset/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+docs
+#VScode
+.vscode/
+
+#PyTest
+.pytest_cache
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs
+*.log
+
+# BlueJ
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.pack
+
+# Project files
+*.project
+*.classpath
+*.settings/
+
+# Env files
+*.env
+.venv

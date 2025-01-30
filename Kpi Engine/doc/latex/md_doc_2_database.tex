@@ -1,0 +1,16 @@
+\chapter{Database}
+\hypertarget{md_doc_2_database}{}\label{md_doc_2_database}\index{Database@{Database}}
+\label{md_doc_2_database_autotoc_md16}%
+\Hypertarget{md_doc_2_database_autotoc_md16}%
+
+
+It is a interface that comunicates with Databse. This interface contains base query functions that extract values\+:
+
+
+\begin{DoxyItemize}
+\item {\itshape retrieve\+\_\+data\+\_\+db} = Taking {\bfseries{machine\+\_\+id}}, the {\bfseries{KPI\textquotesingle{}s list}}, {\bfseries{aggregation\+\_\+operation}}, and {\bfseries{range}}, this function get a matrix of values, where every row is a {\bfseries{KPI}} (inside {\bfseries{KPI\textquotesingle{}s list}}) of {\bfseries{machine}} (identified by {\bfseries{machine\+\_\+id}}). All rows are referred to the temporal range described by {\bfseries{range}}.
+\end{DoxyItemize}
+
+This function are used only for taking information during calculation phase by KPI engine.
+
+As an additional feature, there is also {\itshape get\+\_\+time\+\_\+range} function, that taking {\bfseries{time\+\_\+range}}, {\bfseries{start\+\_\+time}}, {\bfseries{end\+\_\+time}}, this function gives time inside {\bfseries{time\+\_\+range}} (and between {\bfseries{start\+\_\+time}} -\/ {\bfseries{end\+\_\+time}}) converting to datetime objects (the conventional form). This function is not directly correlated to DB connection, but it is used for converting string date in more conventional form for calculation, and also for filtering date outside the temporal range. 

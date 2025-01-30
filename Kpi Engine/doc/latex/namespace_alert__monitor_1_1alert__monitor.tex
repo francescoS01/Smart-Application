@@ -1,0 +1,85 @@
+\doxysection{Alert\+\_\+monitor.\+alert\+\_\+monitor Namespace Reference}
+\hypertarget{namespace_alert__monitor_1_1alert__monitor}{}\label{namespace_alert__monitor_1_1alert__monitor}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_alert__monitor_1_1alert__monitor_1_1_alert}{Alert}}
+\item 
+class \mbox{\hyperlink{class_alert__monitor_1_1alert__monitor_1_1_alert_monitor}{Alert\+Monitor}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{namespace_alert__monitor_1_1alert__monitor_aea92c98b8a13ea62dc6710dcc7555816}{fire\+\_\+alert}} (int machine\+\_\+id, List\mbox{[}str\mbox{]} kpis, str expression, float time\+\_\+range)
+\item 
+\mbox{\hyperlink{namespace_alert__monitor_1_1alert__monitor_a1edc6d8fda2c030236aa12d611ce054a}{test\+\_\+alerts}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_alert__monitor_1_1alert__monitor_a173fcd6cbd682e6bc38ab1e1adc19473}{parent\+\_\+dir}} = os.\+path.\+abspath(os.\+path.\+join(os.\+getcwd(), "{}.."{}))
+\item 
+\mbox{\hyperlink{namespace_alert__monitor_1_1alert__monitor_a191827a9f4bee4da18c7621f94108c55}{level}}
+\item 
+\mbox{\hyperlink{namespace_alert__monitor_1_1alert__monitor_a54bb321285b9884a9f216ef9133d5437}{INFO}}
+\item 
+\mbox{\hyperlink{namespace_alert__monitor_1_1alert__monitor_a384548703a604617f87cb6c3b3a2994e}{format}}
+\item 
+\mbox{\hyperlink{namespace_alert__monitor_1_1alert__monitor_af3aec9885a931e88b513ea86fbec11ca}{logger}} = logging.\+get\+Logger()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_alert__monitor_1_1alert__monitor_aea92c98b8a13ea62dc6710dcc7555816}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}!fire\_alert@{fire\_alert}}
+\index{fire\_alert@{fire\_alert}!Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection{\texorpdfstring{fire\_alert()}{fire\_alert()}}
+{\footnotesize\ttfamily \label{namespace_alert__monitor_1_1alert__monitor_aea92c98b8a13ea62dc6710dcc7555816} 
+None Alert\+\_\+monitor.\+alert\+\_\+monitor.\+fire\+\_\+alert (\begin{DoxyParamCaption}\item[{int}]{machine\+\_\+id}{, }\item[{List\mbox{[}str\mbox{]}}]{kpis}{, }\item[{str}]{expression}{, }\item[{float}]{time\+\_\+range}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}notify the alert to the api layer
+
+Args:
+    machine_id: the id of the machine
+    kpis: the kpis involved
+    expression: the expression calculated
+    time_range: the sliding window time range
+\end{DoxyVerb}
+ \Hypertarget{namespace_alert__monitor_1_1alert__monitor_a1edc6d8fda2c030236aa12d611ce054a}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}!test\_alerts@{test\_alerts}}
+\index{test\_alerts@{test\_alerts}!Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection{\texorpdfstring{test\_alerts()}{test\_alerts()}}
+{\footnotesize\ttfamily \label{namespace_alert__monitor_1_1alert__monitor_a1edc6d8fda2c030236aa12d611ce054a} 
+Alert\+\_\+monitor.\+alert\+\_\+monitor.\+test\+\_\+alerts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespace_alert__monitor_1_1alert__monitor_a384548703a604617f87cb6c3b3a2994e}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}!format@{format}}
+\index{format@{format}!Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily \label{namespace_alert__monitor_1_1alert__monitor_a384548703a604617f87cb6c3b3a2994e} 
+Alert\+\_\+monitor.\+alert\+\_\+monitor.\+format}
+
+\Hypertarget{namespace_alert__monitor_1_1alert__monitor_a54bb321285b9884a9f216ef9133d5437}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}!INFO@{INFO}}
+\index{INFO@{INFO}!Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection{\texorpdfstring{INFO}{INFO}}
+{\footnotesize\ttfamily \label{namespace_alert__monitor_1_1alert__monitor_a54bb321285b9884a9f216ef9133d5437} 
+Alert\+\_\+monitor.\+alert\+\_\+monitor.\+INFO}
+
+\Hypertarget{namespace_alert__monitor_1_1alert__monitor_a191827a9f4bee4da18c7621f94108c55}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}!level@{level}}
+\index{level@{level}!Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily \label{namespace_alert__monitor_1_1alert__monitor_a191827a9f4bee4da18c7621f94108c55} 
+Alert\+\_\+monitor.\+alert\+\_\+monitor.\+level}
+
+\Hypertarget{namespace_alert__monitor_1_1alert__monitor_af3aec9885a931e88b513ea86fbec11ca}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}!logger@{logger}}
+\index{logger@{logger}!Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \label{namespace_alert__monitor_1_1alert__monitor_af3aec9885a931e88b513ea86fbec11ca} 
+Alert\+\_\+monitor.\+alert\+\_\+monitor.\+logger = logging.\+get\+Logger()}
+
+\Hypertarget{namespace_alert__monitor_1_1alert__monitor_a173fcd6cbd682e6bc38ab1e1adc19473}\index{Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}!parent\_dir@{parent\_dir}}
+\index{parent\_dir@{parent\_dir}!Alert\_monitor.alert\_monitor@{Alert\_monitor.alert\_monitor}}
+\doxysubsubsection{\texorpdfstring{parent\_dir}{parent\_dir}}
+{\footnotesize\ttfamily \label{namespace_alert__monitor_1_1alert__monitor_a173fcd6cbd682e6bc38ab1e1adc19473} 
+Alert\+\_\+monitor.\+alert\+\_\+monitor.\+parent\+\_\+dir = os.\+path.\+abspath(os.\+path.\+join(os.\+getcwd(), "{}.."{}))}
+

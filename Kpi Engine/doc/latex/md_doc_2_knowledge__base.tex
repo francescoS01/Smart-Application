@@ -1,0 +1,17 @@
+\chapter{Knowledge base}
+\hypertarget{md_doc_2_knowledge__base}{}\label{md_doc_2_knowledge__base}\index{Knowledge base@{Knowledge base}}
+\label{md_doc_2_knowledge__base_autotoc_md14}%
+\Hypertarget{md_doc_2_knowledge__base_autotoc_md14}%
+
+
+It is a interface that comunicates with Knowledge based. This interface contains base query functions that extracts base information for the KB\+:
+
+
+\begin{DoxyItemize}
+\item {\itshape check\+\_\+kpi\+\_\+availability} \+: takes a {\bfseries{machine\+\_\+id}} and a {\bfseries{KPI\textquotesingle{}s list}}, this function gives a {\bfseries{boolean}} saying wehter the request kpis can be calculated or not on the requested machine.
+\item {\itshape retrieve\+\_\+kpi\+\_\+data} = taking a {\bfseries{KPI\textquotesingle{}s list}}, this functions gives {\bfseries{information foreach KPI}} inside the list, the information for each kpi is a dictionary with informations from the KB.
+\item {\itshape calculate\+\_\+unit} = taking a {\bfseries{set of unit metrics}}, this function gives a {\bfseries{unit}},it is used since the engine can also calculate and give back the unit of the calculation requested when it can be calculated.
+\item {\itshape get\+\_\+base\+\_\+kpis} = taking nothing, this functions gives a list of all {\bfseries{base KPI names}} taken from the KB.
+\end{DoxyItemize}
+
+These functions are used only for taking information, from the KB, about KPI and machines during {\bfseries{semantic validation phase}}, by {\bfseries{engine KPI}} and {\bfseries{API}}. 

@@ -1,0 +1,31 @@
+services:
+  kpi-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app  # Mappa la cartella app dell'host nel container
+    ports:
+      - "8000:8000"  # Espone la porta per accedere all'applicazione
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app  # Assicura che /app sia nel PYTHONPATH
+    restart: always
+    networks:
+      - db-network
+
+  locust:
+    image: locustio/locust
+    ports:
+      - "8089:8089"
+    volumes:
+      - ./stress_load_test.py:/mnt/stress_load_test.py
+    entrypoint: ["locust", "-f", "/mnt/stress_load_test.py", "--host=http://kpi-engine:8000"]
+    depends_on:
+      - kpi-engine
+    networks:
+      - db-network
+
+networks:
+  db-network:
+    name: db-network

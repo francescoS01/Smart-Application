@@ -1,0 +1,5 @@
+pytest==8.3.3
+flask_testing==0.8.0
+coverage>=4.0.3
+pytest-order
+pytest-html-reporter

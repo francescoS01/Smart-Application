@@ -1,0 +1,212 @@
+\doxysection{KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine Class Reference}
+\hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine}{}\label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_1_1_calculator}{Calculator}}
+\item 
+class \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_1_1_general_checking}{General\+Checking}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a2f02bbf55a230b9565295c210151891c}{direct\+\_\+calculation\+\_\+\+KPI}} (int machine, str formula, str start\+\_\+date, str end\+\_\+date, str aggregation)
+\item 
+Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_ad63e074ac8a6f78649d6832e42d12bff}{direct\+\_\+calculation\+\_\+alert}} (int machine, str formula, str start\+\_\+date, str end\+\_\+date, str aggregation)
+\item 
+Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a0e2875cce9204855feaec5af93d2ac77}{direct\+\_\+segmented\+\_\+calculation\+\_\+\+KPI}} (int machine, str formula, tuple\mbox{[}str\mbox{]} ranges, aggregation)
+\item 
+Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_af3c5972126d8d6408194cbaafac9bdd6}{direct\+\_\+segmented\+\_\+calculation\+\_\+alert}} (int machine, str formula, tuple\mbox{[}str\mbox{]} ranges, str aggregation)
+\item 
+bool \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a5f1dd451be2f564a746c79a93afd6967}{add\+\_\+complex\+\_\+\+KPI}} (str name, str description, str expression)
+\item 
+bool \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_aea6c82bb2faa1882771701fdc41c28a4}{remove\+\_\+complex\+\_\+\+KPI}} (str name)
+\item 
+Union\mbox{[}None, \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_1_1_calculator}{Calculator}}\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a00e6aa0f935f651371b3b427cfb450d0}{get\+\_\+complex\+\_\+\+KPI}} (str name)
+\item 
+bool \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a5bd8d801a0c177afaec51c94c32a449e}{add\+\_\+alert}} (str name, str description, str expression)
+\item 
+bool \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a89a82a6b463a03102092a5ddb29b4152}{remove\+\_\+alert}} (str name)
+\item 
+Union\mbox{[}None, \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_1_1_calculator}{Calculator}}\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a536f7c899d4fc0f9babbc44f2eaea9f6}{get\+\_\+alert}} (str name)
+\item 
+list\mbox{[}str\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a46d2f64bb1f85a2bce6c9ec4bb035601}{get\+\_\+alert\+\_\+names}} ()
+\item 
+list\mbox{[}str\mbox{]} \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a856172c57c5e775f0b1ea2caa393ea2c}{get\+\_\+complex\+\_\+\+KPI\+\_\+names}} ()
+\item 
+None \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a03023c311201c72f40e3fa40423321c0}{save\+\_\+state}} (path="{}"{})
+\item 
+None \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a0e2891d60cf3eede3ff2439d6b1876d8}{load\+\_\+state}} (path="{}"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_abc06aadf0737a9eedf9cd6ec6a7da033}{\+\_\+update\+\_\+parser}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dict \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_aba7f58bf3bd4bb5f42a39a8c61e4e9fd}{\+\_\+base\+\_\+functions\+\_\+dict}}
+\item 
+\mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a2d7094fd57acb4bf0e0cfaa7852b387f}{\+\_\+complex\+\_\+\+KPIs\+\_\+dict}} = dict()
+\item 
+\mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_ade0ef08a9e9e697215d54c98c9d90aaa}{\+\_\+total\+\_\+calculators}} = dict()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}@class CalculationEngine
+@brief Descrizione di CalculationEngine
+
+This class demonstrates detailed documentation for Python.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_abc06aadf0737a9eedf9cd6ec6a7da033}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!\_update\_parser@{\_update\_parser}}
+\index{\_update\_parser@{\_update\_parser}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{\_update\_parser()}{\_update\_parser()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_abc06aadf0737a9eedf9cd6ec6a7da033} 
+ None KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+\_\+update\+\_\+parser (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a5bd8d801a0c177afaec51c94c32a449e}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!add\_alert@{add\_alert}}
+\index{add\_alert@{add\_alert}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{add\_alert()}{add\_alert()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a5bd8d801a0c177afaec51c94c32a449e} 
+ bool KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+add\+\_\+alert (\begin{DoxyParamCaption}\item[{str}]{name}{, }\item[{str}]{description}{, }\item[{str}]{expression}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a5f1dd451be2f564a746c79a93afd6967}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!add\_complex\_KPI@{add\_complex\_KPI}}
+\index{add\_complex\_KPI@{add\_complex\_KPI}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{add\_complex\_KPI()}{add\_complex\_KPI()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a5f1dd451be2f564a746c79a93afd6967} 
+ bool KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+add\+\_\+complex\+\_\+\+KPI (\begin{DoxyParamCaption}\item[{str}]{name}{, }\item[{str}]{description}{, }\item[{str}]{expression}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_ad63e074ac8a6f78649d6832e42d12bff}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!direct\_calculation\_alert@{direct\_calculation\_alert}}
+\index{direct\_calculation\_alert@{direct\_calculation\_alert}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{direct\_calculation\_alert()}{direct\_calculation\_alert()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_ad63e074ac8a6f78649d6832e42d12bff} 
+ Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+direct\+\_\+calculation\+\_\+alert (\begin{DoxyParamCaption}\item[{int}]{machine}{, }\item[{str}]{formula}{, }\item[{str}]{start\+\_\+date}{, }\item[{str}]{end\+\_\+date}{, }\item[{str}]{aggregation}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@param: machine, formula, temporal range (start_date, end_date)
+Compile, check and calculate alert
+
+@return: value of alert
+\end{DoxyVerb}
+ \Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a2f02bbf55a230b9565295c210151891c}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!direct\_calculation\_KPI@{direct\_calculation\_KPI}}
+\index{direct\_calculation\_KPI@{direct\_calculation\_KPI}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{direct\_calculation\_KPI()}{direct\_calculation\_KPI()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a2f02bbf55a230b9565295c210151891c} 
+ Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+direct\+\_\+calculation\+\_\+\+KPI (\begin{DoxyParamCaption}\item[{int}]{machine}{, }\item[{str}]{formula}{, }\item[{str}]{start\+\_\+date}{, }\item[{str}]{end\+\_\+date}{, }\item[{str}]{aggregation}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@param: machine, formula, temporal range (start_date, end_date)
+Compile, check and calculate complex KPI
+
+@return: value of complex KPI
+\end{DoxyVerb}
+ \Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_af3c5972126d8d6408194cbaafac9bdd6}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!direct\_segmented\_calculation\_alert@{direct\_segmented\_calculation\_alert}}
+\index{direct\_segmented\_calculation\_alert@{direct\_segmented\_calculation\_alert}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{direct\_segmented\_calculation\_alert()}{direct\_segmented\_calculation\_alert()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_af3c5972126d8d6408194cbaafac9bdd6} 
+ Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+direct\+\_\+segmented\+\_\+calculation\+\_\+alert (\begin{DoxyParamCaption}\item[{int}]{machine}{, }\item[{str}]{formula}{, }\item[{tuple\mbox{[}str\mbox{]}}]{ranges}{, }\item[{str}]{aggregation}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@param: machine, formula, temporal range (start_date, end_date)
+Compile, check and calculate alert
+
+@return: value of alert
+\end{DoxyVerb}
+ \Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a0e2875cce9204855feaec5af93d2ac77}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!direct\_segmented\_calculation\_KPI@{direct\_segmented\_calculation\_KPI}}
+\index{direct\_segmented\_calculation\_KPI@{direct\_segmented\_calculation\_KPI}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{direct\_segmented\_calculation\_KPI()}{direct\_segmented\_calculation\_KPI()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a0e2875cce9204855feaec5af93d2ac77} 
+ Union\mbox{[}float, list\mbox{[}float\mbox{]}\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+direct\+\_\+segmented\+\_\+calculation\+\_\+\+KPI (\begin{DoxyParamCaption}\item[{int}]{machine}{, }\item[{str}]{formula}{, }\item[{tuple\mbox{[}str\mbox{]}}]{ranges}{, }\item[{}]{aggregation}{}\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}@param: machine, formula, temporal range (start_date, end_date)
+Compile, check and calculate complex KPI
+
+@return: value of complex KPI
+\end{DoxyVerb}
+ \Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a536f7c899d4fc0f9babbc44f2eaea9f6}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!get\_alert@{get\_alert}}
+\index{get\_alert@{get\_alert}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{get\_alert()}{get\_alert()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a536f7c899d4fc0f9babbc44f2eaea9f6} 
+ Union\mbox{[}None, \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_1_1_calculator}{Calculator}}\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+get\+\_\+alert (\begin{DoxyParamCaption}\item[{str}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a46d2f64bb1f85a2bce6c9ec4bb035601}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!get\_alert\_names@{get\_alert\_names}}
+\index{get\_alert\_names@{get\_alert\_names}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{get\_alert\_names()}{get\_alert\_names()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a46d2f64bb1f85a2bce6c9ec4bb035601} 
+ list\mbox{[}str\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+get\+\_\+alert\+\_\+names (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a00e6aa0f935f651371b3b427cfb450d0}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!get\_complex\_KPI@{get\_complex\_KPI}}
+\index{get\_complex\_KPI@{get\_complex\_KPI}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{get\_complex\_KPI()}{get\_complex\_KPI()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a00e6aa0f935f651371b3b427cfb450d0} 
+ Union\mbox{[}None, \mbox{\hyperlink{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_1_1_calculator}{Calculator}}\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+get\+\_\+complex\+\_\+\+KPI (\begin{DoxyParamCaption}\item[{str}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a856172c57c5e775f0b1ea2caa393ea2c}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!get\_complex\_KPI\_names@{get\_complex\_KPI\_names}}
+\index{get\_complex\_KPI\_names@{get\_complex\_KPI\_names}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{get\_complex\_KPI\_names()}{get\_complex\_KPI\_names()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a856172c57c5e775f0b1ea2caa393ea2c} 
+ list\mbox{[}str\mbox{]} KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+get\+\_\+complex\+\_\+\+KPI\+\_\+names (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a0e2891d60cf3eede3ff2439d6b1876d8}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!load\_state@{load\_state}}
+\index{load\_state@{load\_state}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{load\_state()}{load\_state()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a0e2891d60cf3eede3ff2439d6b1876d8} 
+ None KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+load\+\_\+state (\begin{DoxyParamCaption}\item[{}]{path}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a89a82a6b463a03102092a5ddb29b4152}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!remove\_alert@{remove\_alert}}
+\index{remove\_alert@{remove\_alert}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{remove\_alert()}{remove\_alert()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a89a82a6b463a03102092a5ddb29b4152} 
+ bool KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+remove\+\_\+alert (\begin{DoxyParamCaption}\item[{str}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_aea6c82bb2faa1882771701fdc41c28a4}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!remove\_complex\_KPI@{remove\_complex\_KPI}}
+\index{remove\_complex\_KPI@{remove\_complex\_KPI}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{remove\_complex\_KPI()}{remove\_complex\_KPI()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_aea6c82bb2faa1882771701fdc41c28a4} 
+ bool KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+remove\+\_\+complex\+\_\+\+KPI (\begin{DoxyParamCaption}\item[{str}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a03023c311201c72f40e3fa40423321c0}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!save\_state@{save\_state}}
+\index{save\_state@{save\_state}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{save\_state()}{save\_state()}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a03023c311201c72f40e3fa40423321c0} 
+ None KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+save\+\_\+state (\begin{DoxyParamCaption}\item[{}]{path}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_aba7f58bf3bd4bb5f42a39a8c61e4e9fd}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!\_base\_functions\_dict@{\_base\_functions\_dict}}
+\index{\_base\_functions\_dict@{\_base\_functions\_dict}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{\_base\_functions\_dict}{\_base\_functions\_dict}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_aba7f58bf3bd4bb5f42a39a8c61e4e9fd} 
+dict KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+\_\+base\+\_\+functions\+\_\+dict\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}max"{}}:\ \textcolor{keyword}{lambda}\ x:\ max(x),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}min"{}}:\ \textcolor{keyword}{lambda}\ x:\ min(x),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sum"{}}:\ \textcolor{keyword}{lambda}\ x:\ sum(x),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}avg"{}}:\ \textcolor{keyword}{lambda}\ x:\ np.mean(x),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}var"{}}:\ \textcolor{keyword}{lambda}\ x:\ np.var(x),}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a2d7094fd57acb4bf0e0cfaa7852b387f}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!\_complex\_KPIs\_dict@{\_complex\_KPIs\_dict}}
+\index{\_complex\_KPIs\_dict@{\_complex\_KPIs\_dict}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{\_complex\_KPIs\_dict}{\_complex\_KPIs\_dict}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_a2d7094fd57acb4bf0e0cfaa7852b387f} 
+KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+\_\+complex\+\_\+\+KPIs\+\_\+dict = dict()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+\Hypertarget{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_ade0ef08a9e9e697215d54c98c9d90aaa}\index{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}!\_total\_calculators@{\_total\_calculators}}
+\index{\_total\_calculators@{\_total\_calculators}!KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine@{KPI\_engine.EngineCalculation.calculation\_engine.CalculationEngine}}
+\doxysubsubsection{\texorpdfstring{\_total\_calculators}{\_total\_calculators}}
+{\footnotesize\ttfamily \label{class_k_p_i__engine_1_1_engine_calculation_1_1calculation__engine_1_1_calculation_engine_ade0ef08a9e9e697215d54c98c9d90aaa} 
+KPI\+\_\+engine.\+Engine\+Calculation.\+calculation\+\_\+engine.\+Calculation\+Engine.\+\_\+total\+\_\+calculators = dict()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+app/\+KPI\+\_\+engine/\+Engine\+Calculation/\mbox{\hyperlink{calculation__engine_8py}{calculation\+\_\+engine.\+py}}\end{DoxyCompactItemize}
