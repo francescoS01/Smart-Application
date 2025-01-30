@@ -13,6 +13,14 @@ from sqlalchemy.engine import Engine
 import pytz
 from feast.data_source import PushMode
 from itertools import product
+import pandas as pd
+from feast import FeatureStore
+import redis
+import pickle
+from datetime import datetime
+import redis
+import pickle
+
 
 def new_engine(hostname='localhost'):
     """
@@ -52,6 +60,10 @@ def start_store(repo_dir: str = None, print__subprocess_output: bool = False):
         print(result.stderr.decode())
     return store
 
+
+
+# ------------------- SQL Functions -------------------
+
 def insert_data_to_sql(df, table_name: str, engine: Engine):
     """
     Insert data into a SQL table.
@@ -69,7 +81,6 @@ def insert_data_to_sql(df, table_name: str, engine: Engine):
         print(f"Dati inseriti con successo nella tabella '{table_name}'.")
     except Exception as e:
         print(f"Errore durante l'inserimento dei dati: {e}")
-
 
 def get_data_from_sql(table_name: str, engine, attributes: list = None, conditions: dict = None, start_time: datetime = None, end_time: datetime = None):
     """
@@ -123,7 +134,6 @@ def get_data_from_sql(table_name: str, engine, attributes: list = None, conditio
         print(f"Errore durante il recupero dei dati: {e}")
         return None
 
-
 def delete_data_from_sql(table_name: str, engine: Engine, conditions: dict = None, start_time: datetime = None, end_time: datetime = None):
     """
     Delete data from a SQL table with optional filtering.
@@ -170,117 +180,74 @@ def delete_data_from_sql(table_name: str, engine: Engine, conditions: dict = Non
         print(f"Errore durante l'eliminazione dei dati: {e}")
 
 
-def get_filtered_online_features(store, feature_view_name, attributes, conditions):
-    """
-    Retrieve filtered online features from the feature store.
 
-    Args:
-        store (FeatureStore): The Feast feature store.
-        feature_view_name (str): The name of the feature view.
-        attributes (list): List of attributes to retrieve.
-        conditions (dict): Conditions for filtering the features.
+# ------------------- Online Store Functions -------------------
 
-    Returns:
-        DataFrame: The retrieved features.
-    """
-    if not all(key in conditions for key in ['machineid', 'kpi', 'aggregation_type']):
-        raise ValueError("Le condizioni devono includere 'machineid', 'kpi' e 'aggregation_type'.")
+# Funzione per inserire i dati in Redis
+def insert_data_to_redis(df, feature_view_name):
+    redis_client = get_redis_client()
+    for _, row in df.iterrows():
+        machineid = row['machineid']
+        kpi = row['kpi']
+        aggregation_type = row['aggregation_type']
+        
+        key = build_key(machineid, kpi, aggregation_type) # Costruisce la chiave
+        
+        data = {
+            "timestamp": row['timestamp'],
+            "value": row['value'],
+            "imputation": row['imputation'],
+            "anomaly": row['anomaly'],
+            "trend_drift": row['trend_drift'],
+            "next_days_predictions": row['next_days_predictions'],
+            "confidence_interval_lower": row['confidence_interval_lower'],
+            "confidence_interval_upper": row['confidence_interval_upper']
+        }
+        
+        # Serializza e inserisci i dati in Redis
+        redis_client.set(key, pickle.dumps(data))  # Serializza con pickle e salva in Redis
 
-    # Genera combinazioni cartesiane di tutte le condizioni specificate
-    entity_rows = [
-        {"machineid": machineid, "kpi": kpi, "aggregation_type": aggregation_type}
-        for machineid, kpi, aggregation_type in product(conditions['machineid'], conditions['kpi'], conditions['aggregation_type'])
-    ]
+# Funzione per estrarre i dati in base a condizioni dinamiche
+def get_data_from_redis_with_conditions(conditions):
+    redis_client = get_redis_client()
+    matching_data = []
+    # Estrai tutte le chiavi esistenti in Redis
+    all_keys = redis_client.keys('*')
 
-    # Funzione per ottenere i dati online dalla store
-    def get_online_features_from_view(store, feature_view_name, attributes, entity_rows):
-        attributes_with_prefix = [f"{feature_view_name}:{attribute}" for attribute in attributes]
-        returned_features = store.get_online_features(
-            features=attributes_with_prefix,
-            entity_rows=entity_rows
-        ).to_dict()
+    # Loop su tutte le chiavi per verificare quelle che soddisfano le condizioni
+    for key in all_keys:
+        # Estrai i componenti della chiave (machineid, kpi, aggregation_type)
+        key_parts = key.decode('utf-8').split(':')
+        
+        if len(key_parts) == 3:
+            machineid, kpi, aggregation_type = key_parts
+        else:
+            continue  # Se la chiave non ha il formato corretto, salta
 
-        df = pd.DataFrame(returned_features)
-        df.columns = [col.replace(f"{feature_view_name}:", "") for col in df.columns]
+        # Verifica se la chiave soddisfa le condizioni
+        if (conditions['machineid'] and machineid not in conditions['machineid']):
+            continue
+        if (conditions['kpi'] and kpi not in conditions['kpi']):
+            continue
+        if (conditions['aggregation_type'] and aggregation_type not in conditions['aggregation_type']):
+            continue
 
-        return df
+        # Recupera i dati dalla chiave
+        raw_data = redis_client.get(key)
 
-    # 1. Prova a ottenere i dati dalla fresh feature view
-    fresh_df = get_online_features_from_view(store, f"{feature_view_name}_fresh", attributes, entity_rows)
+        # Se ci sono dati per quella chiave, deserializza e aggiungi ai risultati
+        if raw_data:
+            data = pickle.loads(raw_data)
+            matching_data.append(data)
 
-    # 2. Controlla se ci sono valori None o NaN negli attributi
-    if fresh_df[attributes].isnull().any().any():
-        tz = pytz.timezone('Europe/Rome')
-        store.materialize(start_date=datetime.now(tz) - timedelta(hours=2), end_date=datetime.now(tz))
-        historical_df = get_online_features_from_view(store, feature_view_name, attributes, entity_rows)
-        return historical_df
-
-    return fresh_df
-
-
-
-
-import pandas as pd
-from feast import FeatureStore
-
-
-from feast import FeatureStore
-import pandas as pd
-
-def read_data_from_redis(store, feature_view_name, entity_df):
-    """
-    Leggi i dati da Redis per la feature view e le entità specificate.
-
-    Args:
-        store (FeatureStore): Il Feature Store di Feast.
-        feature_view_name (str): Il nome della feature view.
-        entity_df (DataFrame): Il DataFrame con le entità da interrogare.
-
-    Returns:
-        DataFrame: I dati letti da Redis per la feature view richiesta.
-    """
-    # Esegui la lettura delle feature online per la feature view
-    online_features = store.get_online_features(
-        features=[
-            f"{feature_view_name}:value",              # Feature "value" per historical_store
-            f"{feature_view_name}:imputation",         # Feature "imputation"
-            f"{feature_view_name}:anomaly",            # Feature "anomaly"
-            f"{feature_view_name}:trend_drift",        # Feature "trend_drift"
-            f"{feature_view_name}:next_days_predictions",   # Feature "next_days_predictions"
-            f"{feature_view_name}:confidence_interval_lower",  # Feature "confidence_interval_lower"
-            f"{feature_view_name}:confidence_interval_upper"   # Feature "confidence_interval_upper"
-        ],
-        entity_df=entity_df
-    ).to_df()
-
-    return online_features
+    # Restituisce i dati che corrispondono alle condizioni
+    return matching_data
 
 
 
+# ------------------- Insert New Data in Both -------------------
 
-def insert_data_to_redis(df, store, feature_view_name):
-    """
-    Insert data into Redis for online feature serving.
-
-    Args:
-        df (DataFrame): The data to insert.
-        store (FeatureStore): The Feast feature store.
-        feature_view_name (str): The name of the feature view.
-
-    Returns:
-        None
-    """
-    store.push(f"{feature_view_name}_push_source", df, to=PushMode.ONLINE)
-
-
-
-
-
-
-
-
-
-def insert_new_data(df, table_name: str, engine: Engine, store):
+def insert_new_data(df, table_name, engine):
     """
     Insert new data into both SQL and Redis.
 
@@ -293,5 +260,30 @@ def insert_new_data(df, table_name: str, engine: Engine, store):
     Returns:
         None
     """
+    #insert_data_to_sql(df, table_name, engine)
+    #insert_data_to_redis(df, store, table_name)
+
     insert_data_to_sql(df, table_name, engine)
-    insert_data_to_redis(df, store, table_name)
+    insert_data_to_redis(df, table_name)
+
+
+
+# ------------------- utils functions -------------------
+
+def get_redis_client(host='localhost', port=6379, db=0):
+    """
+    Creates and returns a Redis client instance.
+
+    Args:
+        host (str): The hostname of the Redis server. Defaults to 'localhost'.
+        port (int): The port number on which the Redis server is listening. Defaults to 6379.
+        db (int): The database number to connect to. Defaults to 0.
+
+    Returns:
+        redis.StrictRedis: A Redis client instance connected to the specified server and database.
+    """
+    return redis.StrictRedis(host=host, port=port, db=db, decode_responses=False)
+
+def build_key(machineid: str, kpi: str, aggregation_type: str) -> str:
+    return f"{machineid}:{kpi}:{aggregation_type}"
+
