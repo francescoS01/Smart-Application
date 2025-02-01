@@ -89,6 +89,19 @@ services:
       - init-kafka
     networks:
       - db-network
+  
+  redis-to-sql:
+    build:
+      context: .
+      dockerfile: redis-to-sql.Dockerfile
+    image: redis-to-sql:latest
+    restart: always
+    depends_on:
+      - redis
+      - db
+    networks:
+      - db-network
+
 
 volumes:
   postgresdata:
@@ -96,3 +109,4 @@ volumes:
 networks:
   db-network:
     name: db-network
+

@@ -3,7 +3,7 @@ INSERT INTO Warehouse.Machines (MachineID, Name, Line, Factory, Type) VALUES
 (1, 'Machine A', 1, 'Factory 1', 'Type X'),
 (2, 'Machine B', 2, 'Factory 1', 'Type Y'),
 (3, 'Machine C', 1, 'Factory 2', 'Type X'),
-(4, 'Machine D', 3, 'Factory 2', 'Type Z');
+(444, 'Machine D', 3, 'Factory 2', 'Type Z');
 
 -- Populate Alerts table
 INSERT INTO Warehouse.Alerts (AlertID, MachineID, Timestamp, Severity, KPI, Description) VALUES

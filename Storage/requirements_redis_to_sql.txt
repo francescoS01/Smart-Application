@@ -1,0 +1,7 @@
+psycopg2-binary==2.9.10    # Per la connessione a PostgreSQL
+redis==4.0.0               # Per interagire con Redis
+schedule==1.1.0            # Per schedulare il task ogni 30 secondi
+pandas==1.5.3              # Per la gestione dei dati (DataFrame)
+sqlalchemy==2.0.12         # Per l'interazione con il database (ORM)
+feast==0.41.3     # Per l'integrazione con il Feature Store (se lo stai usando)
+hiredis==2.1.1             # Per migliorare la performance di redis-py
